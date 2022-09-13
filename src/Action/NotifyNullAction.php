@@ -46,11 +46,11 @@ class NotifyNullAction implements ActionInterface, ApiAwareInterface, GatewayAwa
             if ($parsedBody === false) {
                 return;
             }
-
-            // 1472041829003 === Transaction
-            if ($parsedBody['listenerEntityId'] !== 1472041829003) {
-                return;
-            }
+//
+//            // 1472041829003 === Transaction
+//            if ($parsedBody['listenerEntityId'] !== 1472041829003) {
+//                return;
+//            }
 
             $transaction = $this->api->getApi()->read($this->api->getSpaceId(), $parsedBody['entityId']);
 

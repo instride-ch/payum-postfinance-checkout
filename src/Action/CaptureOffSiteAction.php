@@ -13,7 +13,6 @@ use Payum\Core\GatewayAwareInterface;
 use Payum\Core\GatewayAwareTrait;
 use Payum\Core\Reply\HttpRedirect;
 use Payum\Core\Request\Capture;
-use Payum\Core\Request\GetHumanStatus as BaseGetHumanStatus;
 use Payum\Core\Security\GenericTokenFactoryAwareInterface;
 use Payum\Core\Security\GenericTokenFactoryAwareTrait;
 use Payum\Core\Security\TokenInterface;
@@ -24,7 +23,6 @@ use PostFinanceCheckout\Sdk\Model\LineItemType;
 use PostFinanceCheckout\Sdk\Model\TransactionCreate;
 use PostFinanceCheckout\Sdk\VersioningException;
 use Wvision\Payum\PostFinanceCheckout\ApiWrapper;
-use Wvision\Payum\PostFinanceCheckout\Request\GetHumanStatus;
 use Wvision\Payum\PostFinanceCheckout\Request\PrepareTransaction;
 
 /**
@@ -88,45 +86,12 @@ class CaptureOffSiteAction implements ActionInterface, GenericTokenFactoryAwareI
         $this->gateway->execute(new PrepareTransaction($request->getFirstModel(), $transaction));
 
         $createdTransaction = $this->api->getApi()->create($this->api->getSpaceId(), $transaction);
-        $this->api->getApi()->confirm($this->api->getSpaceId(), $createdTransaction);
 
         $model['pfc_transaction_id'] = $createdTransaction->getId();
-
-        $status = $this->waitForTransactionState($model, [
-            BaseGetHumanStatus::STATUS_FAILED,
-            GetHumanStatus::STATUS_CONFIRMED,
-        ]);
-
-        if (false === $status) {
-            return;
-        }
-
-        if ($status === BaseGetHumanStatus::STATUS_FAILED) {
-            return;
-        }
 
         throw new HttpRedirect(
             $this->api->getPaymentPageApi()->paymentPageUrl($this->api->getSpaceId(), $createdTransaction->getId())
         );
-    }
-
-    protected function waitForTransactionState($model, array $states, int $maxWaitTime = 10)
-    {
-        $startTime = \microtime(true);
-
-        while (true) {
-            $this->gateway->execute($status = new GetHumanStatus($model));
-
-            if (\in_array($status->getValue(), $states, true)) {
-                return $status->getValue();
-            }
-
-            if (\microtime(true) - $startTime >= $maxWaitTime) {
-                return false;
-            }
-
-            \sleep(2);
-        }
     }
 
     /**
