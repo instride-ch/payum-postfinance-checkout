@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wvision\Payum\PostFinanceCheckout\Action;
+namespace Instride\Payum\PostFinanceCheckout\Action;
 
 use Exception;
 use Payum\Core\Action\ActionInterface;
@@ -17,7 +17,7 @@ use Payum\Core\Reply\HttpResponse;
 use Payum\Core\Request\GetHttpRequest;
 use Payum\Core\Request\GetToken;
 use Payum\Core\Request\Notify;
-use Wvision\Payum\PostFinanceCheckout\ApiWrapper;
+use Instride\Payum\PostFinanceCheckout\ApiWrapper;
 
 class NotifyNullAction implements ActionInterface, ApiAwareInterface, GatewayAwareInterface
 {

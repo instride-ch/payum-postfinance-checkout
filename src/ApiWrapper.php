@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wvision\Payum\PostFinanceCheckout;
+namespace Instride\Payum\PostFinanceCheckout;
 
 use PostFinanceCheckout\Sdk\Service\TransactionPaymentPageService;
 use PostFinanceCheckout\Sdk\Service\TransactionService;

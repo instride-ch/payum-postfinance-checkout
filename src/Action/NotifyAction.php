@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wvision\Payum\PostFinanceCheckout\Action;
+namespace Instride\Payum\PostFinanceCheckout\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
@@ -11,8 +11,8 @@ use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\GatewayAwareInterface;
 use Payum\Core\GatewayAwareTrait;
 use Payum\Core\Request\Notify;
-use Wvision\Payum\PostFinanceCheckout\ApiWrapper;
-use Wvision\Payum\PostFinanceCheckout\Request\GetHumanStatus;
+use Instride\Payum\PostFinanceCheckout\ApiWrapper;
+use Instride\Payum\PostFinanceCheckout\Request\GetHumanStatus;
 
 class NotifyAction implements ActionInterface, ApiAwareInterface, GatewayAwareInterface
 {

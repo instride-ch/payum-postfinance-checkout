@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wvision\Payum\PostFinanceCheckout\Action;
+namespace Instride\Payum\PostFinanceCheckout\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;

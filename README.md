@@ -6,5 +6,5 @@ payment integration.
 
 #### Via Composer
 ```bash
-$ composer require w-vision/payum-postfinance-checkout:^1.0
+$ composer require instride/payum-postfinance-checkout:^1.0
 ```

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Wvision\Payum\PostFinanceCheckout;
+namespace Instride\Payum\PostFinanceCheckout;
 
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\GatewayFactory;
 use PostFinanceCheckout\Sdk\ApiClient;
 use PostFinanceCheckout\Sdk\Service\TransactionPaymentPageService;
 use PostFinanceCheckout\Sdk\Service\TransactionService;
-use Wvision\Payum\PostFinanceCheckout\Action\CaptureOffSiteAction;
-use Wvision\Payum\PostFinanceCheckout\Action\ConvertPaymentAction;
-use Wvision\Payum\PostFinanceCheckout\Action\NotifyAction;
-use Wvision\Payum\PostFinanceCheckout\Action\NotifyNullAction;
-use Wvision\Payum\PostFinanceCheckout\Action\StatusAction;
+use Instride\Payum\PostFinanceCheckout\Action\CaptureOffSiteAction;
+use Instride\Payum\PostFinanceCheckout\Action\ConvertPaymentAction;
+use Instride\Payum\PostFinanceCheckout\Action\NotifyAction;
+use Instride\Payum\PostFinanceCheckout\Action\NotifyNullAction;
+use Instride\Payum\PostFinanceCheckout\Action\StatusAction;
 
 class PostFinanceCheckoutGatewayFactory extends GatewayFactory
 {

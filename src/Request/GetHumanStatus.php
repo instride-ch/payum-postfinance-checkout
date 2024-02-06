@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wvision\Payum\PostFinanceCheckout\Request;
+namespace Instride\Payum\PostFinanceCheckout\Request;
 
 use Payum\Core\Request\GetHumanStatus as BaseGetHumanStatus;
 
