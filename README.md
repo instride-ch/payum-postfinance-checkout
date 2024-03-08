@@ -1,5 +1,6 @@
-# Payum: Postfinance Checkout
-A Payum extension to provide [Postfinance Checkout](https://www.postfinance.ch/de/unternehmen/produkte/e-commerce/postfinance-checkout-all-in-one.html)
+![Payum Postfinance Checkout](docs/images/github_banner.png)
+
+A Payum extension to provide [Postfinance Checkout](https://checkout.postfinance.ch/doc)
 payment integration.
 
 ## Installation
